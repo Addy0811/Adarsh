@@ -20,4 +20,7 @@ public class Student {
     @Column(name="contact",unique = true)
     private String contact;
 
+   @OneToOne(mappedBy = "svn",cascade = CascadeType.ALL)
+    private Card card;
+
 }
