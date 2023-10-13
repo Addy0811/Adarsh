@@ -5,22 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "Author")
+public class Authors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
-    @Column(name="name")
-    private String name;
-    @Column(name="contact",unique = true)
-    private String contact;
+    private String authorName;
+    private String city;
 
-   @OneToOne(mappedBy = "svn",cascade = CascadeType.ALL)
-    private Card card;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "author")
+    private List<BooksLib> booksList;
 
 }

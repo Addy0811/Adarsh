@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_id")
-    private String id;
+    private int id;
     @Column(name = "card_status")
     private CardStatus cardStatus;
 
@@ -21,6 +21,6 @@ public class Card {
     private int due;
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "Student_id")
     private Student svn;
 }

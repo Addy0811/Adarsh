@@ -5,22 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "students")
-public class Student {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "BooksLib")
+public class BooksLib {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
-    @Column(name="name")
     private String name;
-    @Column(name="contact",unique = true)
-    private String contact;
+    private String genre;
+    private int pages;
 
-   @OneToOne(mappedBy = "svn",cascade = CascadeType.ALL)
-    private Card card;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Authors author;
 
 }

@@ -18,6 +18,7 @@ public class StudService {
         card.setCardStatus(CardStatus.Activated);
         card.setDue(4500);
         student.setCard(card);
+        card.setSvn(student);
         stuRepos.save(student);
         return "Student Added";
     }
